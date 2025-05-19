@@ -1,0 +1,327 @@
+﻿@{
+	ViewData["Title"] = "Wedding Invitation";
+	var name = ViewBag.UserName;
+	Layout = null;
+}
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>@ViewData["Title"]</title>
+
+	<!-- Fonts -->
+	<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600&family=Pacifico&display=swap" rel="stylesheet" />
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			background: linear-gradient(to bottom right, #fff0f5, #fef6e4);
+			font-family: 'Vazirmatn', sans-serif;
+			color: #333;
+			position: relative;
+		}
+
+		.invitation-container {
+			max-width: 750px;
+			margin: 40px auto;
+			background: #fff9f9;
+			padding: 40px 30px;
+			border: 5px double #ffb6c1;
+			border-radius: 15px;
+			box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+			text-align: center;
+			position: relative;
+			z-index: 1;
+		}
+
+		h2.title {
+			font-size: 2.8em;
+			color: #d63384;
+			margin-bottom: 20px;
+		}
+
+		h2.welcome {
+			font-size: 1.8em;
+			color: #28a745;
+			margin-bottom: 25px;
+		}
+
+		.guest-name {
+			color: #0d6efd;
+			font-weight: bold;
+		}
+
+		h3 {
+			font-size: 1.4em;
+			color: #6f42c1;
+			margin-bottom: 5px;
+		}
+
+		.name {
+			font-family: 'Pacifico', cursive;
+			font-size: 1.6em;
+			margin: 0;
+			padding: 5px;
+		}
+
+		.groom {
+			color: #007bff;
+		}
+
+		.bride {
+			color: #e83e8c;
+		}
+
+		.login-container {
+			position: relative; /* Required for absolute positioning inside */
+			/* ...existing styles... */
+		}
+
+		.dev-credit {
+			position: absolute;
+			bottom: 10px;
+			right: 15px;
+			font-size: 0.75em;
+			color: #555;
+		}
+
+		p {
+			font-size: 1.1em;
+			line-height: 1.6;
+			margin-bottom: 15px;
+		}
+
+		.highlight {
+			color: #dc3545;
+			font-weight: bold;
+		}
+
+		.divider {
+			margin: 25px auto;
+			width: 60%;
+			border-top: 2px dashed #aaa;
+		}
+
+		.section-box {
+			border: 2px dashed #ffcad4;
+			padding: 40px 30px;
+			border-radius: 10px;
+			margin: 40px auto;
+			background: #fff0f5;
+		}
+
+		.cracker-container {
+			position: fixed;
+			bottom: 0;
+			width: 80px;
+			height: 100vh;
+			z-index: 9999;
+			pointer-events: none;
+			overflow: visible;
+		}
+
+		.left-cracker {
+			left: 20px;
+		}
+
+		.right-cracker {
+			right: 20px;
+		}
+
+		.spark {
+			position: absolute;
+			width: 8px;
+			height: 8px;
+			border-radius: 50%;
+			background-color: red;
+			animation: sparkBlast 1s ease-out forwards;
+		}
+
+		@@keyframes sparkBlast {
+			0% {
+				transform: translate(0, 0) scale(1);
+				opacity: 1;
+			}
+
+			100% {
+				transform: translate(var(--x), var(--y)) scale(0.1);
+				opacity: 0;
+			}
+		}
+
+		@@page {
+			size: A4 portrait;
+			margin: 1.5cm;
+		}
+
+		@@media print {
+			body {
+				background: white !important;
+				color: black;
+			}
+
+			.cracker-container,
+			button,
+			script {
+				display: none !important;
+			}
+
+			.invitation-container {
+				box-shadow: none;
+				border: 2px solid #999;
+				margin: 0;
+				padding: 30px;
+				page-break-inside: avoid;
+			}
+
+			.section-box {
+				background: none;
+				border: 1px dashed #aaa;
+			}
+		}
+
+
+		@@media (max-width: 600px) {
+			.invitation-container {
+				padding: 25px 20px;
+			}
+
+			h2.title {
+				font-size: 2em;
+			}
+
+			.name {
+				font-size: 1.3em;
+			}
+
+			.section-box {
+				padding: 15px;
+			}
+		}
+	</style>
+</head>
+<body>
+
+	<div class="invitation-container p-4 my-4">
+		<h3 class="fs-3 fw-bold text-center text-danger">💐 தமிழர் கல்யாண அழைப்பிதழ் 💐</h3>
+		<h3 class="welcome">🙏 வாங்க <b><span class="guest-name">@name</span></b> அவர்களே 🙏</h3>
+		<div class="section-box">
+			<p>
+				எங்கள் குடும்பத்தில் பெரு மகிழ்ச்சி!<br />
+				ஒரு கல்வி களஞ்சியமான <strong>B.Ed ஜோடி</strong>, தங்களது வாழ்கை பயணத்தை தொடங்கப் போகிறார்கள்!
+			</p>
+		</div>
+
+		<div class="section-box" style="padding: 15px 20px;">
+			<h3 style="margin-bottom: 5px;">🤵 மணமகன்:</h3>
+			<p class="name groom" style="margin-bottom: 5px;">திரு. தினேஷ் குமார்</p>
+			<p style="margin: 0 0 10px;">
+				(B.Ed முடிச்சு, <strong>மாணவர்கள் கண்டு நடுங்கும் ஆசான்!</strong> 📏)
+			</p>
+
+			<h3 style="margin: 10px 0 5px;">👰 மணமகள்:</h3>
+			<p class="name bride" style="margin-bottom: 5px;">திருமதி. மகாலட்சுமி</p>
+			<p style="margin: 0;">(B.Ed முடிச்சுட்டு, சிரிப்போட சந்தோஷம்)</p>
+		</div>
+
+
+		<div class="section-box">
+			<p>
+				📅 <strong class="highlight">திருமண நாள்:</strong> ஜூன் 6, 2025 (வெள்ளிக்கிழமை)<br />
+				⏰ <strong class="highlight">நேரம்:</strong> காலை 9:35க்கு மிக நல்ல நேரம்!<br />
+				🕘 அப்ப தான்  <strong>மாப்பிள்ளை தாலி கட்டுவார் — miss pannirathinga!</strong> 😄<br />
+				📍 <strong class="highlight">இடம்:</strong> மருங்கூரணி முத்துமாரியம்மன் கோவில்
+			</p>
+		</div>
+	</div>
+	<div class="invitation-container p-4 my-4">
+		<div class="section-box">
+			<p style="margin-top:20px;">
+				🍽️ <strong class="highlight">சாப்பாடு:</strong> <br />
+				"Marriage க்கு வந்துட்டு,'சோறு எங்க போடுவாங்க?'னு தேட வேண்டாம்!<br />
+				<strong>Stage-க்கு பின்புறம் தான்</strong> போய் நேரா சாப்பிடலாம்!<br />
+				<strong>
+					ஓடுறது  தாவுறது  எல்லாம் இல்ல,இலைதல தான்!
+				</strong> 😄
+			</p>
+		</div>
+		<div class="section-box">
+			<p>
+				உங்கள் வருகை எங்கள் மகிழ்ச்சிக்கு காரணமாகும்! 🎊<br />
+				📸 Selfie, Blessings & Saapadu mukkiyam Pangu😄<br />
+				(இது ஒரு மெய்ப்பொருள் இல்லாத அழைப்பு — ஆனா உண்மையான சந்தோசம்!)
+			</p>
+
+
+		</div>
+		<p class="dev-credit">Developed by Ajith 😄</p>
+	</div>
+
+	<!-- Crackers -->
+	<div class="cracker-container left-cracker"></div>
+	<div class="cracker-container right-cracker"></div>
+	<p style="margin-top:30px; text-align:center;">
+		<button onclick="window.print()" style="
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 10px 25px;
+        font-size: 1.1em;
+        border-radius: 8px;
+        cursor: pointer;
+        text-align: center;
+        box-shadow: 0 4px 10px rgba(0, 123, 255, 0.5);
+        transition: transform 0.2s, box-shadow 0.2s;
+	">
+			அச்சிடுங்கள்
+		</button>
+	</p>
+
+
+</body>
+</html>
+<script>
+	function createBlast(containerSelector) {
+		const container = document.querySelector(containerSelector);
+		if (!container) return;
+
+		for (let i = 0; i < 25; i++) {
+			const spark = document.createElement('div');
+			spark.className = 'spark';
+
+			// Random color
+			const colors = ['#ff3e3e', '#ffdd00', '#00ffd5', '#00ff00', '#ff00e6'];
+			spark.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+
+			// Random direction and distance
+			const angle = Math.random() * 2 * Math.PI;
+			const distance = Math.random() * 100 + 80;
+			const x = Math.cos(angle) * distance + 'px';
+			const y = Math.sin(angle) * distance - window.innerHeight / 2 + 'px';
+
+			spark.style.setProperty('--x', x);
+			spark.style.setProperty('--y', y);
+
+			container.appendChild(spark);
+
+			setTimeout(() => {
+				spark.remove();
+			}, 1000);
+		}
+	}
+
+	// Repeat the cracker burst
+	setInterval(() => {
+		createBlast('.left-cracker');
+		createBlast('.right-cracker');
+	}, 1500);
+</script>
+
+
+
+
+s
